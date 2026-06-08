@@ -3,117 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitar Orçamento Rápido</title>
+    <title>Solicitação de Orçamento</title>
     <style>
-        /* Estilos Gerais para Mobile e Desktop */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+        /* CSS Reset e Variáveis de Design */
+        :root {
+            --bg-primary: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --brand-color: #25d366;
+            --brand-dark: #128c7e;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #2c3e50;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            background-color: #ffffff;
+        /* Container Principal (Card) */
+        .card {
+            background-color: var(--surface);
             width: 100%;
-            max-width: 450px;
-            margin: 20px;
-            padding: 35px 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border-top: 6px solid #25d366;
+            max-width: 440px;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #128c7e;
-            margin-bottom: 5px;
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--brand-dark);
+            background-color: #e8f8f0;
+            padding: 6px 12px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 16px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .info-card {
-            background-color: #f9fbf9;
-            border-left: 4px solid #128c7e;
-            padding: 15px;
-            text-align: left;
-            border-radius: 4px;
-            font-size: 14px;
-            line-height: 1.6;
+        /* Linha do Tempo / UX de Passos Simples */
+        .steps {
             margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        /* O Botão do WhatsApp */
-        .btn-whatsapp {
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            background-color: #f8fafc;
+        }
+
+        .step-number {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #25d366;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 16px 20px;
-            border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, background-color 0.2s;
+            background-color: #e2e8f0;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 12px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
+        .step-text {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .step-text strong {
+            color: var(--text-main);
+        }
+
+        /* Chamada para Ação (CTA) */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #111111; /* Preto elegante em vez do verde berrante traz mais seriedade */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        /* Efeito de clique e feedback tátil excelente no mobile */
+        @media (hover: hover) {
+            .btn-whatsapp:hover {
+                background-color: var(--brand-dark);
+                transform: translateY(-1px);
+            }
+        }
         .btn-whatsapp:active {
-            transform: scale(0.98);
-            background-color: #1ebd59;
+            transform: translateY(1px) scale(0.99);
         }
 
         .btn-whatsapp svg {
-            width: 24px;
-            height: 24px;
-            fill: #ffffff;
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
             margin-right: 10px;
         }
 
-        .footer {
-            margin-top: 35px;
-            font-size: 12px;
-            color: #95a5a6;
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .security-badge svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Nome/Marca do seu negócio -->
-        <div class="logo">Orçamento Rápido</div>
-        <div class="subtitle">Receba sua cotação em poucos minutos</div>
-
-        <!-- Bloco explicativo de conversão -->
-        <div class="info-card">
-            <strong>Como funciona?</strong><br>
-            Clique no botão abaixo para iniciar uma conversa direto no nosso WhatsApp. Você nos passa os detalhes do que precisa e enviamos o valor na hora!
+    <div class="card">
+        <div class="header">
+            <span class="tag">Atendimento Oficial</span>
+            <h1>Solicite seu orçamento</h1>
+            <p class="subtitle">Análise de escopo e resposta detalhada de forma ágil e descomplicada.</p>
         </div>
 
-        <!-- Importante: Ajuste o link abaixo com o seu número de telefone real -->
-        <!-- Formato: https://wa.me/55 + DDD + SEU_NUMERO?text=SUA_MENSAGEM -->
-        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de fazer um orçamento." class="btn-whatsapp" target="_blank">
-            <!-- Ícone nativo em SVG do WhatsApp -->
-            <svg viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.3.15 4.975.15 5.564 0 10.093-4.529 10.097-10.093.002-2.695-1.047-5.228-2.951-7.133C16.859 2.173 14.329.124 11.63.124c-5.564 0-10.093 4.529-10.097 10.093-.001 1.914.499 3.784 1.446 5.43L1.81 21.113l5.513-1.446z"/>
-            </svg>
-            Chamar no WhatsApp
-        </a>
+        <div class="steps">
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <p class="step-text">Clique no botão abaixo para iniciar a triagem de segurança via <strong>WhatsApp</strong>.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <p class="step-text">Informe os detalhes ou envie <strong>arquivos e fotos</strong> do que precisa.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <p class="step-text">Receba sua proposta comercial formalizada em formato <strong>PDF</strong>.</p>
+            </div>
+        </div>
 
-        <div class="footer">
-            Atendimento imediato e sem compromisso.
+        <div class="cta-group">
+            <!-- Insira seu telefone no local do 5511999999999 -->
+            <a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento comercial." class="btn-whatsapp" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.3.15 4.975.15 5.564 0 10.093-4.529 10.097-10.093.002-2.695-1.047-5.228-2.951-7.133C16.859 2.173 14.329.124 11.63.124c-5.564 0-10.093 4.529-10.097 10.093-.001 1.914.499 3.784 1.446 5.43L1.81 21.113l5.513-1.446z"/>
+                </svg>
+                Iniciar Atendimento Digital
+            </a>
+
+            <div class="security-badge">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+                Ambiente seguro e verificado
+            </div>
         </div>
     </div>
 
