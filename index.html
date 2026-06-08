@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitação de Orçamento</title>
+    <meta name="description" content="Site profissional moderno por apenas R$ 100. Entrega em até 48h. Landing page, portfólio, delivery, clínica e mais.">
+    <title>Site Profissional por R$ 100 | Entrega em 48h</title>
     <style>
-        /* CSS Reset e Variáveis de Design */
         :root {
-            --bg-primary: #f8fafc;
-            --surface: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --brand-color: #25d366;
-            --brand-dark: #128c7e;
-            --radius-lg: 16px;
-            --radius-sm: 8px;
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg: #0a0a0a;
+            --card: #111111;
+            --text: #ffffff;
+            --text-muted: #aaaaaa;
+            --accent: #ffffff;
+            --green: #25D366;
         }
 
-        *, *::before, *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -26,200 +23,322 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             padding: 20px;
-            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
         }
 
-        /* Container Principal (Card) */
         .card {
-            background-color: var(--surface);
+            background: var(--card);
             width: 100%;
-            max-width: 440px;
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2e8f0;
+            max-width: 520px;
+            padding: 60px 48px 50px;
+            border-radius: 32px;
+            box-shadow: 
+                0 30px 70px -15px rgba(0, 0, 0, 0.8),
+                0 10px 20px -5px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 0 rgba(255,255,255,0.08);
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Cabeçalho */
-        .header {
-            text-align: center;
-            margin-bottom: 32px;
+        .card:hover {
+            transform: translateY(-12px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #fff, #ddd, #fff);
         }
 
         .tag {
-            display: inline-block;
-            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
             font-weight: 700;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--brand-dark);
-            background-color: #e8f8f0;
-            padding: 6px 12px;
-            border-radius: 50px;
-            margin-bottom: 16px;
+            color: #ddd;
+            background: #1a1a1a;
+            padding: 8px 24px;
+            border-radius: 9999px;
+            border: 1px solid #333;
+            margin-bottom: 24px;
+        }
+
+        .price {
+            font-size: 78px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price sup {
+            font-size: 32px;
+            top: -18px;
+            font-weight: 600;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
-            line-height: 1.2;
-            margin-bottom: 10px;
+            letter-spacing: -1.2px;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
         .subtitle {
-            font-size: 14.5px;
+            font-size: 17.5px;
             color: var(--text-muted);
-            line-height: 1.5;
+            max-width: 380px;
+            margin: 0 auto;
         }
 
-        /* Linha do Tempo / UX de Passos Simples */
-        .steps {
-            margin-bottom: 35px;
+        .features {
+            margin: 48px 0;
+            display: grid;
+            gap: 18px;
+        }
+
+        .feature {
             display: flex;
-            flex-direction: column;
+            align-items: flex-start;
             gap: 16px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateX(8px);
+        }
+
+        .check {
+            color: #25D366;
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .steps {
+            margin: 50px 0;
         }
 
         .step-item {
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            background-color: #f8fafc;
+            gap: 20px;
+            padding: 22px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
         }
 
         .step-number {
+            width: 44px;
+            height: 44px;
+            background: white;
+            color: black;
+            font-weight: 800;
+            font-size: 19px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #e2e8f0;
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 12px;
-            width: 24px;
-            height: 24px;
             border-radius: 50%;
             flex-shrink: 0;
         }
 
-        .step-text {
-            font-size: 13.5px;
+        .step-content h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            font-size: 15.5px;
             color: var(--text-muted);
-            line-height: 1.4;
         }
 
-        .step-text strong {
-            color: var(--text-main);
-        }
-
-        /* Chamada para Ação (CTA) */
         .cta-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
+            margin-top: 30px;
         }
 
         .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #111111; /* Preto elegante em vez do verde berrante traz mais seriedade */
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            width: 100%;
-            padding: 16px 24px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        /* Efeito de clique e feedback tátil excelente no mobile */
-        @media (hover: hover) {
-            .btn-whatsapp:hover {
-                background-color: var(--brand-dark);
-                transform: translateY(-1px);
-            }
-        }
-        .btn-whatsapp:active {
-            transform: translateY(1px) scale(0.99);
-        }
-
-        .btn-whatsapp svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-            margin-right: 10px;
-        }
-
-        .security-badge {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            color: #94a3b8;
+            justify-content: center;
+            gap: 14px;
+            background: var(--green);
+            color: white;
+            font-size: 19px;
+            font-weight: 700;
+            width: 100%;
+            padding: 24px 32px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 30px -8px rgba(37, 211, 102, 0.4);
+            letter-spacing: -0.4px;
         }
 
-        .security-badge svg {
-            width: 12px;
-            height: 12px;
-            fill: currentColor;
+        .btn-whatsapp:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 25px 40px -8px rgba(37, 211, 102, 0.6);
+            background: #1eb855;
+        }
+
+        .security {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14.5px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .testimonials {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 48px 32px;
+            }
+            h1 { font-size: 28px; }
+            .price { font-size: 68px; }
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="header">
-            <span class="tag">Atendimento Oficial</span>
-            <h1>Solicite seu orçamento</h1>
-            <p class="subtitle">Análise de escopo e resposta detalhada de forma ágil e descomplicada.</p>
+        <div style="text-align: center;">
+            <span class="tag">● OFERTA LIMITADA • HOJE</span>
+            <div class="price">R$<sup>100</sup></div>
+            <h1>Site Profissional<br>Pronto em 48h</h1>
+            <p class="subtitle">Landing page moderna, bonita e otimizada para vender. Totalmente responsiva.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                    <strong>Design moderno e profissional</strong><br>
+                    <span style="color:var(--text-muted)">Responsivo em celular e computador</span>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                    <strong>Otimizado para conversão</strong><br>
+                    <span style="color:var(--text-muted)">Formulário, WhatsApp, SEO básico</span>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                    <strong>Seu domínio + hospedagem inclusa</strong><br>
+                    <span style="color:var(--text-muted)">Por 1 ano</span>
+                </div>
+            </div>
         </div>
 
         <div class="steps">
             <div class="step-item">
                 <span class="step-number">1</span>
-                <p class="step-text">Clique no botão abaixo para iniciar a triagem de segurança via <strong>WhatsApp</strong>.</p>
+                <div class="step-content">
+                    <h3>Você me conta o que precisa</h3>
+                    <p>Delivery, serviços, portfólio, clínica, igreja, loja, etc.</p>
+                </div>
             </div>
             <div class="step-item">
                 <span class="step-number">2</span>
-                <p class="step-text">Informe os detalhes ou envie <strong>arquivos e fotos</strong> do que precisa.</p>
+                <div class="step-content">
+                    <h3>Envia seus materiais</h3>
+                    <p>Logo, fotos, textos e cores da sua marca.</p>
+                </div>
             </div>
             <div class="step-item">
                 <span class="step-number">3</span>
-                <p class="step-text">Receba sua proposta comercial formalizada em formato <strong>PDF</strong>.</p>
+                <div class="step-content">
+                    <h3>Recebe seu site pronto</h3>
+                    <p>Revisões inclusas + suporte pós-entrega.</p>
+                </div>
             </div>
         </div>
 
         <div class="cta-group">
-            <!-- Insira seu telefone no local do 5511999999999 -->
-            <a href="https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento comercial." class="btn-whatsapp" target="_blank">
-                <svg viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.3.15 4.975.15 5.564 0 10.093-4.529 10.097-10.093.002-2.695-1.047-5.228-2.951-7.133C16.859 2.173 14.329.124 11.63.124c-5.564 0-10.093 4.529-10.097 10.093-.001 1.914.499 3.784 1.446 5.43L1.81 21.113l5.513-1.446z"/>
-                </svg>
-                Iniciar Atendimento Digital
+            <a href="https://wa.me/5511999999999?text=Olá!%20Vi%20a%20oferta%20do%20site%20por%20R%24100%20e%20quero%20o%20meu!" 
+               class="btn-whatsapp" 
+               target="_blank">
+                <span style="font-size:28px">📱</span>
+                Quero meu Site por R$ 100
             </a>
+        </div>
 
-            <div class="security-badge">
-                <svg viewBox="0 0 24 24">
-                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-                </svg>
-                Ambiente seguro e verificado
-            </div>
+        <div class="security">
+            <span>🔒</span>
+            Pagamento via Pix • Garantia de Satisfação • Suporte Total
+        </div>
+
+        <div class="testimonials">
+            <p style="text-align:center; font-style:italic; margin-bottom:12px;">
+                "Fiz em 2 dias e já estou recebendo pedidos!"<br>
+                <strong>— João Mendes, Delivery SP</strong>
+            </p>
         </div>
     </div>
+
+    <!-- Botão flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20meu%20site%20profissional%20por%20R%24100" 
+       class="floating-whatsapp" 
+       target="_blank">
+        💬
+    </a>
 
 </body>
 </html>
