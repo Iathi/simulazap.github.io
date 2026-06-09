@@ -3,342 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site profissional moderno por apenas R$ 100. Entrega em até 48h. Landing page, portfólio, delivery, clínica e mais.">
-    <title>Site Profissional por R$ 100 | Entrega em 48h</title>
+    <title>ClickSite100 - Sites Profissionais por R$ 100</title>
     <style>
         :root {
-            --bg: #0a0a0a;
-            --card: #111111;
-            --text: #ffffff;
-            --text-muted: #aaaaaa;
-            --accent: #ffffff;
-            --green: #25D366;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-blue: #00d2ff;
+            --accent-gold: #d4af37;
+            --text-color: #ffffff;
+            --text-muted: #94a3b8;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: 
-                radial-gradient(circle at 50% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
         }
 
-        .card {
-            background: var(--card);
-            width: 100%;
-            max-width: 520px;
-            padding: 60px 48px 50px;
-            border-radius: 32px;
-            box-shadow: 
-                0 30px 70px -15px rgba(0, 0, 0, 0.8),
-                0 10px 20px -5px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 0 rgba(255,255,255,0.08);
-            border: 1px solid #222;
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 3px solid var(--accent-blue);
+            border-radius: 0 0 12px 12px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: var(--accent-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* Hero Price Box */
+        .hero-offer {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 5px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-offer h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .hero-offer .price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+            margin: 10px 0;
+        }
+
+        .hero-offer .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Sections General */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
             position: relative;
-            overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card:hover {
-            transform: translateY(-12px);
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #fff, #ddd, #fff);
+        .feature-card h3::after {
+            content: 'Incluso';
+            font-size: 0.8rem;
+            background-color: rgba(0, 210, 255, 0.15);
+            color: var(--accent-blue);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        .tag {
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Addons Grid */
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .addon-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .addon-card h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .addon-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .addon-price {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Footer / CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .cta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .cta-box .alert {
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--green);           /* Verde */
-            background: #1a1a1a;
-            padding: 8px 24px;
-            border-radius: 9999px;
-            border: 1px solid var(--green);
-            margin-bottom: 24px;
-        }
-
-        .price {
-            font-size: 78px;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 8px;
-            background: linear-gradient(90deg, var(--green), #1eb855); /* Verde */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .price sup {
-            font-size: 32px;
-            top: -18px;
-            font-weight: 600;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -1.2px;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .subtitle {
-            font-size: 17.5px;
-            color: var(--text-muted);
-            max-width: 380px;
-            margin: 0 auto;
-        }
-
-        .features {
-            margin: 48px 0;
-            display: grid;
-            gap: 18px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 16px 20px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            background: rgba(255,255,255,0.06);
-            transform: translateX(8px);
-        }
-
-        .check {
-            color: var(--green);
-            font-size: 22px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .steps {
-            margin: 50px 0;
-        }
-
-        .step-item {
-            display: flex;
-            gap: 20px;
-            padding: 22px 0;
-            border-bottom: 1px solid #222;
-        }
-
-        .step-item:last-child {
-            border-bottom: none;
-        }
-
-        .step-number {
-            width: 44px;
-            height: 44px;
-            background: white;
-            color: black;
-            font-weight: 800;
-            font-size: 19px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            flex-shrink: 0;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 250px;
         }
 
-        .step-content h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .step-content p {
-            font-size: 15.5px;
-            color: var(--text-muted);
-        }
-
-        .cta-group {
-            margin-top: 30px;
+        .btn:hover {
+            transform: translateY(-3px);
         }
 
         .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            background: var(--green);
-            color: white;
-            font-size: 19px;
-            font-weight: 700;
-            width: 100%;
-            padding: 24px 32px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 20px 30px -8px rgba(37, 211, 102, 0.4);
-            letter-spacing: -0.4px;
+            background-color: #25d366;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: 0 25px 40px -8px rgba(37, 211, 102, 0.6);
-            background: #1eb855;
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
         }
 
-        .security {
+        .badges {
             text-align: center;
-            margin-top: 32px;
-            font-size: 14.5px;
+            margin-top: 30px;
             color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
-        .testimonials {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #222;
-            font-size: 15px;
-            color: var(--text-muted);
-        }
-
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-            z-index: 100;
-            text-decoration: none;
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                padding: 48px 32px;
-            }
-            h1 { font-size: 28px; }
-            .price { font-size: 68px; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .hero-offer .price { font-size: 3rem; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div style="text-align: center;">
-            <span class="tag">● OFERTA LIMITADA • HOJE</span>
-            <div class="price">R$<sup>100</sup></div>
-            <h1>Site Profissional<br>Pronto em 48h</h1>
-            <p class="subtitle">Landing page moderna, bonita e otimizada para vender. Totalmente responsiva.</p>
+    <header>
+        <h1>Cardápio de Serviços Digitais</h1>
+        <p>Seu Negócio no Próximo Nível</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Bloco de Oferta Principal -->
+        <div class="hero-offer">
+            <h2>PROMOÇÃO EXCLUSIVA: SITE PROFISSIONAL</h2>
+            <div class="price">R$ 100,00</div>
+            <p class="subtitle">Taxa única de desenvolvimento para colocar sua empresa na internet rápido</p>
         </div>
 
-        <div class="features">
-            <div class="feature">
-                <span class="check">✓</span>
-                <div>
-                    <strong>Design moderno e profissional</strong><br>
-                    <span style="color:var(--text-muted)">Responsivo em celular e computador</span>
-                </div>
+        <!-- Recursos Inclusos -->
+        <h2 class="section-title">O Que Está Incluso no Site de R$ 100</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Design Moderno</h3>
+                <p>Layout adaptado e personalizado para as cores e identidade da sua marca.</p>
             </div>
-            <div class="feature">
-                <span class="check">✓</span>
-                <div>
-                    <strong>Otimizado para conversão</strong><br>
-                    <span style="color:var(--text-muted)">Formulário, WhatsApp, SEO básico</span>
-                </div>
+            <div class="feature-card">
+                <h3>100% Mobile</h3>
+                <p>Site totalmente otimizado para abrir perfeitamente em celulares, tablets e computadores.</p>
             </div>
-            <div class="feature">
-                <span class="check">✓</span>
-                <div>
-                    <strong>Seu domínio + hospedagem inclusa</strong><br>
-                    <span style="color:var(--text-muted)">Por 1 ano</span>
-                </div>
+            <div class="feature-card">
+                <h3>Botão WhatsApp</h3>
+                <p>Link direto flutuante para o cliente clicar e já cair conversando no seu WhatsApp Business.</p>
             </div>
-        </div>
-
-        <div class="steps">
-            <div class="step-item">
-                <span class="step-number">1</span>
-                <div class="step-content">
-                    <h3>Você me conta o que precisa</h3>
-                    <p>Delivery, serviços, portfólio, clínica, igreja, loja, etc.</p>
-                </div>
+            <div class="feature-card">
+                <h3>Redes Sociais</h3>
+                <p>Ícones e links configurados direcionando direto para o seu perfil no Instagram.</p>
             </div>
-            <div class="step-item">
-                <span class="step-number">2</span>
-                <div class="step-content">
-                    <h3>Envia seus materiais</h3>
-                    <p>Logo, fotos, textos e cores da sua marca.</p>
-                </div>
+            <div class="feature-card">
+                <h3>Seções Essenciais</h3>
+                <p>Página principal com Quem Somos, Apresentação de Serviços/Produtos, Galeria e Contato.</p>
             </div>
-            <div class="step-item">
-                <span class="step-number">3</span>
-                <div class="step-content">
-                    <h3>Recebe seu site pronto</h3>
-                    <p>Revisões inclusas + suporte pós-entrega.</p>
-                </div>
+            <div class="feature-card">
+                <h3>Otimização SEO</h3>
+                <p>Estruturação básica para ajudar seu site a começar a aparecer nas buscas do Google.</p>
             </div>
         </div>
 
-        <div class="cta-group">
-            <a href="https://wa.me/5511999999999?text=Olá!%20Vi%20a%20oferta%20do%20site%20por%20R%24100%20e%20quero%20o%20meu!" 
-               class="btn-whatsapp" 
-               target="_blank">
-                <span style="font-size:28px"></span>
-                QUERO MEU SITE
-            </a>
+        <!-- Serviços Opcionais -->
+        <h2 class="section-title">Serviços Adicionais (Opcionais)</h2>
+        <div class="addons-grid">
+            <div class="addon-card">
+                <h4>Domínio (.com.br)</h4>
+                <p>Seu nome exclusivo na internet (ex: www.seunegocio.com.br).</p>
+                <div class="addon-price">+ R$ 40,00 / ano</div>
+            </div>
+            <div class="addon-card">
+                <h4>Hospedagem Premium</h4>
+                <p>Espaço seguro para manter seu site no ar 24h por dia sem quedas.</p>
+                <div class="addon-price">+ R$ 25,00 / mês</div>
+            </div>
+            <div class="addon-card">
+                <h4>Página Extra</h4>
+                <p>Catálogo detalhado ou página exclusiva focado em um produto específico.</p>
+                <div class="addon-price">+ R$ 50,00 (Única)</div>
+            </div>
+            <div class="addon-card">
+                <h4>Manutenção Mensal</h4>
+                <p>Alterações de fotos, textos ou atualização de preços sempre que precisar.</p>
+                <div class="addon-price">+ R$ 35,00 / mês</div>
+            </div>
         </div>
 
-        <div class="security">
-            <span>🔒</span>
-            Pagamento via Pix • Garantia de Satisfação • Suporte Total
+        <!-- Chamada para Ação e Contatos -->
+        <div class="cta-box">
+            <h3>FALE COMIGO AGORA E GARANTA SUA VAGA!</h3>
+            <p class="alert">⚡ Entrega rápida em até 5 dias úteis após o envio das informações!</p>
+            
+            <div class="buttons-container">
+                <a href="https://wa.me/5514998807899" target="_blank" class="btn btn-whatsapp">
+                    🟢 Chamar no WhatsApp
+                </a>
+                <a href="https://instagram.com/clicksite100" target="_blank" class="btn btn-instagram">
+                    📸 Seguir no Instagram
+                </a>
+            </div>
         </div>
 
-        <div class="testimonials">
-            <p style="text-align:center; font-style:italic; margin-bottom:12px;">
-                "Fiz em 2 dias e já estou recebendo pedidos!"<br>
-                <strong>— João Mendes, Delivery SP</strong>
-            </p>
+        <div class="badges">
+            Profissionais • Rápidos • Personalizados
         </div>
+
     </div>
-
-    <!-- Botão flutuante -->
-    <a href="https://wa.me/5514998807899?text=Olá!%20Quero%20meu%20site%20profissional%20por%20R%24100" 
-       class="floating-whatsapp" 
-       target="_blank">
-        💬
-    </a>
 
 </body>
 </html>
